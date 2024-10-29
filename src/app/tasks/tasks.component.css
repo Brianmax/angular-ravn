@@ -1,0 +1,29 @@
+.task-container {
+  display: flex;
+  flex-direction: row;
+}
+.task-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.dashboard-task {
+  background: rgb(61, 61, 61);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+li {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.handling-tasks {
+  display: flex;
+  flex-direction: row;
+}

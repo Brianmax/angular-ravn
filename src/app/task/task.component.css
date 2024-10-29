@@ -1,0 +1,112 @@
+.card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-header h3 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.card-options {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.points {
+  font-size: 16px;
+  color: #b0b0b0;
+}
+
+.due-date {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #e0e0e0;
+}
+
+.due-date i {
+  margin-right: 5px;
+}
+
+.card-tags {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tag {
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.ios {
+  background-color: #4caf50;
+  color: white;
+}
+
+.android {
+  background-color: #ff9800;
+  color: white;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.footer-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  color: #b0b0b0;
+}
+
+.footer-icons i {
+  margin-right: 5px;
+}
+
+.icon-clock,
+.icon-attachment,
+.icon-subtask {
+  font-style: normal;
+  font-weight: bold;
+}
+
+.svg-icon {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,44 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #2d2d2d;
+  padding: 10px 15px;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.search-icon svg {
+  color: #a0a0a0;
+  margin-right: 10px;
+}
+
+.search-bar input {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.notification-icon svg {
+  color: #a0a0a0;
+  margin-right: 15px;
+}
+
+.profile-picture img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.search-bar:hover {
+  background-color: #3d3d3d;
+}
+
+.notification-icon:hover svg,
+.search-icon:hover svg {
+  color: #fff;
+}
