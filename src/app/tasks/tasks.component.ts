@@ -30,7 +30,6 @@ export class TasksComponent {
 
   taskHandler(value: boolean) {
     this.isAddingTask = value;
-    console.log("isAddingTask: ", this.isAddingTask);
   }
   get tagsList() {
     return this.taskService.tagsList

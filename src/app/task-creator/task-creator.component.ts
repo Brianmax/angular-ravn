@@ -16,7 +16,6 @@ import {NgForOf} from "@angular/common";
 })
 export class TaskCreatorComponent {
   @Output() closeEmitter = new EventEmitter<boolean>();
-  @Output() taskEmitter = new EventEmitter<TaskModel> ();
   enteredTitle = '';
   enteredPoints = 0;
   dueDate = '';

@@ -14,7 +14,7 @@ import {NgForOf} from "@angular/common";
 export class TaskComponent {
   @Input({required:true}) userTask!: TaskModel;
   computeDueDate(dueDate: string) {
-    const dueDateSt = new Date(this.userTask.dueDate);
+    const dueDateSt = new Date(dueDate);
     const currentDate = new Date();
     const timeDiff = Math.abs(dueDateSt.getTime() - currentDate.getTime());
     const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
@@ -23,7 +23,8 @@ export class TaskComponent {
     } else if (diffDays === 1) {
       return 'TOMORROW';
     } else {
-      return dueDate;
+      return `IN ${diffDays} DAYS`;
     }
   }
+
 }
