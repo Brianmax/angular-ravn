@@ -1,9 +1,9 @@
 .card {
-  background-color: #1e1e1e;
+  background-color: #191818;
   border-radius: 12px;
   padding: 20px;
   width: 300px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(211, 161, 161, 0.2);
   color: white;
   font-family: 'Arial', sans-serif;
 }
@@ -55,7 +55,6 @@
 .tag {
   padding: 8px 15px;
   border-radius: 8px;
-  font-weight: bold;
   font-size: 14px;
   cursor: pointer;
   text-align: center;
@@ -86,21 +85,12 @@
 
 .footer-icons {
   display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 16px;
-  color: #b0b0b0;
+  flex-direction: row;
+  color: #f4f4f4;
 }
 
 .footer-icons i {
   margin-right: 5px;
-}
-
-.icon-clock,
-.icon-attachment,
-.icon-subtask {
-  font-style: normal;
-  font-weight: bold;
 }
 
 .svg-icon {
@@ -110,3 +100,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.hover-svg-icon:hover {
+  transform: scale(1.1);
+}
+

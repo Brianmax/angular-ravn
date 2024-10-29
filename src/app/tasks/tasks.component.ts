@@ -3,6 +3,8 @@ import {NgForOf, NgIf} from "@angular/common";
 import {DUMMY_TASKS} from "./dummy-task";
 import {TaskComponent} from "../task/task.component";
 import {SearchBarComponent} from "../search-bar/search-bar.component";
+import {TaskService} from "./task.service";
+import {TaskCreatorComponent} from "../task-creator/task-creator.component";
 
 @Component({
   selector: 'app-tasks',
@@ -11,20 +13,26 @@ import {SearchBarComponent} from "../search-bar/search-bar.component";
     NgForOf,
     TaskComponent,
     NgIf,
-    SearchBarComponent
+    SearchBarComponent,
+    TaskCreatorComponent
   ],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-  protected readonly DUMMY_TASKS = DUMMY_TASKS;
   isAddingTask = false;
 
+  constructor(private taskService: TaskService) {}
+
   filteredTasks(status: String) {
-    return this.DUMMY_TASKS.filter(task=>task.status === status);
+    return this.taskService.tasksList.filter(task => task.status === status);
   }
 
-  onAddTask() {
-    this.isAddingTask = true;
+  taskHandler(value: boolean) {
+    this.isAddingTask = value;
+    console.log("isAddingTask: ", this.isAddingTask);
+  }
+  get tagsList() {
+    return this.taskService.tagsList
   }
 }
