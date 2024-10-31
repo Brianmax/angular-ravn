@@ -9,17 +9,17 @@
   </div>
   <div class="task-container">
     <div class="progress">
-      <h2>Progress</h2>
+      <h2>To Do</h2>
       <ul class="task-list">
-        <li *ngFor="let task of filteredTasks('in-progress')">
+        <li *ngFor="let task of filteredTasks('todo')">
           <app-task [userTask]="task"/>
         </li>
       </ul>
     </div>
     <div class="working">
-      <h2>Working</h2>
+      <h2>In Progress</h2>
       <ul class="task-list">
-        <li *ngFor="let task of filteredTasks('working')">
+        <li *ngFor="let task of filteredTasks('in-progress')">
           <app-task [userTask]="task"/>
         </li>
       </ul>

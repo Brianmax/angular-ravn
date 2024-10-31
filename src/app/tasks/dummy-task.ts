@@ -13,7 +13,7 @@ export const DUMMY_TASKS: TaskModel[] = [
     points: 20,
     dueDate: '2024-05-31',
     tags: ['IOS'],
-    status: 'working'
+    status: 'todo'
   },
   {
     title: 'Prepare issue template',

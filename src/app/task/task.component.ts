@@ -2,6 +2,7 @@ import {Component, Input, Output} from '@angular/core';
 import {TaskModel} from "./task.model";
 import {NgForOf, NgIf} from "@angular/common";
 import {MenuComponent} from "../menu/menu.component";
+import {TaskService} from "../tasks/task.service";
 
 @Component({
   selector: 'app-task',
@@ -17,6 +18,7 @@ import {MenuComponent} from "../menu/menu.component";
 export class TaskComponent {
   @Input({required:true}) userTask!: TaskModel;
   isEditing = false;
+  constructor(private taskService: TaskService) { }
 
   computeDueDate(dueDate: string) {
     const dueDateSt = new Date(dueDate);
@@ -34,5 +36,13 @@ export class TaskComponent {
 
   editTask() {
     this.isEditing = true;
+  }
+
+  chageStatus(status: string) {
+    this.userTask.status = status;
+  }
+
+  removeTask() {
+    this.taskService.removeTask(this.userTask);
   }
 }

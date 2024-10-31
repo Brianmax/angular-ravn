@@ -21,4 +21,7 @@ export class TaskService {
   get tagsList() {
     return this.tags;
   }
+  removeTask(task: TaskModel) {
+    this.tasks = this.tasks.filter(t => t !== task);
+  }
 }
