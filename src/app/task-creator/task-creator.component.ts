@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {TaskModel} from "../task/task.model";
 import {TaskService} from "../tasks/task.service";
-import {FormsModule} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgForOf} from "@angular/common";
 
 @Component({
@@ -9,31 +9,31 @@ import {NgForOf} from "@angular/common";
   standalone: true,
   imports: [
     FormsModule,
-    NgForOf
+    NgForOf,
+    ReactiveFormsModule
   ],
   templateUrl: './task-creator.component.html',
   styleUrl: './task-creator.component.css'
 })
 export class TaskCreatorComponent {
   @Output() closeEmitter = new EventEmitter<boolean>();
-  enteredTitle = '';
-  enteredPoints = 0;
-  dueDate = '';
-  enteredStatus = '';
+
+  taskForm: FormGroup;
   tags: string[] = [];
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, private fb: FormBuilder) {
+    this.taskForm = this.fb.group({
+      title: ['', Validators.required],
+      points: [0, Validators.required],
+      dueDate: ['', Validators.required],
+      status: ['', Validators.required],
+      tags: this.tags
+    });
+  }
 
   onSubmit() {
     this.closeEmitter.emit(false);
-    this.taskService.saveTasks(
-      {
-        title: this.enteredTitle,
-        points: this.enteredPoints,
-        dueDate: this.dueDate,
-        tags: this.tags,
-        status: this.enteredStatus
-      }
-    )
+    console.log(this.taskForm.value);
+    this.taskService.saveTasks(this.taskForm.value)
   }
   onCancel() {
     this.closeEmitter.emit(false);
@@ -42,8 +42,8 @@ export class TaskCreatorComponent {
   onAddTag(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
     const selectedTag = selectElement.value;
-    this.tags.push(selectedTag);
-    selectElement.value = '';
+    // @ts-ignore
+    this.taskForm.get('tags').setValue([...this.tags, selectedTag]);
   }
   get tagsList() {
     return this.taskService.tagsList;

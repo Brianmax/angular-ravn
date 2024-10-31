@@ -1,22 +1,22 @@
 <div class="backdrop" (click)="onCancel()"></div>
 <dialog class="modal" open>
   <h2>Add task</h2>
-  <form (ngSubmit)="onSubmit()">
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
     <p>
       <label for="title">Title</label>
-      <input type="text" id="title" name="title" [(ngModel)]="enteredTitle" />
+      <input type="text" formControlName="title" id="title" name="title" />
     </p>
     <p>
       <label for="points">Points</label>
-      <input type="text" id="points"  name="points" [(ngModel)]="enteredPoints" />
+      <input type="text" formControlName="points" id="points"  name="points" />
     </p>
     <p>
       <label for="due-date">Due Date</label>
-      <input type="date" id="due-date" name="due-date" [(ngModel)]="dueDate" />
+      <input type="date" formControlName="dueDate" id="due-date" name="due-date" />
     </p>
     <p>
       <label for="status">Status</label>
-      <select id="status" name="status" [(ngModel)]="enteredStatus">
+      <select id="status" name="status" formControlName="status">
         <option value="in-progress">In Progress</option>
         <option value="working">Working</option>
         <option value="completed">Completed</option>

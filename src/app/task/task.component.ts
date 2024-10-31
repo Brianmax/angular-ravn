@@ -1,18 +1,23 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, Output} from '@angular/core';
 import {TaskModel} from "./task.model";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
+import {MenuComponent} from "../menu/menu.component";
 
 @Component({
   selector: 'app-task',
   standalone: true,
   imports: [
-    NgForOf
+    NgForOf,
+    MenuComponent,
+    NgIf
   ],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
 })
 export class TaskComponent {
   @Input({required:true}) userTask!: TaskModel;
+  isEditing = false;
+
   computeDueDate(dueDate: string) {
     const dueDateSt = new Date(dueDate);
     const currentDate = new Date();
@@ -27,4 +32,7 @@ export class TaskComponent {
     }
   }
 
+  editTask() {
+    this.isEditing = true;
+  }
 }
