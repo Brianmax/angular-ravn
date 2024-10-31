@@ -42,8 +42,9 @@ export class TaskCreatorComponent {
   onAddTag(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
     const selectedTag = selectElement.value;
+    this.tags.push(selectedTag);
     // @ts-ignore
-    this.taskForm.get('tags').setValue([...this.tags, selectedTag]);
+    this.taskForm.get('tags').setValue([...this.tags]);
   }
   get tagsList() {
     return this.taskService.tagsList;
