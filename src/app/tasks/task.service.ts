@@ -24,4 +24,11 @@ export class TaskService {
   removeTask(task: TaskModel) {
     this.tasks = this.tasks.filter(t => t !== task);
   }
+  getTaskById(id: string) {
+    return this.tasks.find(task => task.id === id);
+  }
+  updateTask(task: TaskModel, id: string) {
+    const index = this.tasks.findIndex(t => t.id === id);
+    this.tasks[index] = task;
+  }
 }

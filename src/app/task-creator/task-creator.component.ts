@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {TaskModel} from "../task/task.model";
 import {TaskService} from "../tasks/task.service";
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgForOf} from "@angular/common";
+import { v4 as uuidv4 } from "uuid";
 
 @Component({
   selector: 'app-task-creator',
@@ -32,7 +32,7 @@ export class TaskCreatorComponent {
 
   onSubmit() {
     this.closeEmitter.emit(false);
-    console.log(this.taskForm.value);
+    this.taskForm.value.id = uuidv4();
     this.taskService.saveTasks(this.taskForm.value)
   }
   onCancel() {

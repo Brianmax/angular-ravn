@@ -1,4 +1,4 @@
-import {Component, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {TaskModel} from "./task.model";
 import {NgForOf, NgIf} from "@angular/common";
 import {MenuComponent} from "../menu/menu.component";
@@ -17,6 +17,7 @@ import {TaskService} from "../tasks/task.service";
 })
 export class TaskComponent {
   @Input({required:true}) userTask!: TaskModel;
+  @Output() selectedTask = new EventEmitter<string>();
   isEditing = false;
   constructor(private taskService: TaskService) { }
 
@@ -36,6 +37,7 @@ export class TaskComponent {
 
   editTask() {
     this.isEditing = true;
+    this.selectedTask.emit(this.userTask.id);
   }
 
   chageStatus(status: string) {

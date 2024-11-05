@@ -12,7 +12,10 @@
       <h2>To Do</h2>
       <ul class="task-list">
         <li *ngFor="let task of filteredTasks('todo')">
-          <app-task [userTask]="task"/>
+          <app-task
+            [userTask]="task"
+            (selectedTask)="onEditTask($event)"
+          />
         </li>
       </ul>
     </div>
@@ -20,7 +23,10 @@
       <h2>In Progress</h2>
       <ul class="task-list">
         <li *ngFor="let task of filteredTasks('in-progress')">
-          <app-task [userTask]="task"/>
+          <app-task
+            [userTask]="task"
+            (selectedTask)="onEditTask($event)"
+          />
         </li>
       </ul>
     </div>
@@ -28,7 +34,10 @@
       <h2>Completed</h2>
       <ul class="task-list">
         <li *ngFor="let task of filteredTasks('completed')">
-          <app-task [userTask]="task"/>
+          <app-task
+            [userTask]="task"
+            (selectedTask)="onEditTask($event)"
+          />
         </li>
       </ul>
     </div>
@@ -37,4 +46,9 @@
     *ngIf="isAddingTask"
     (closeEmitter)="taskHandler($event)"
   />
+  <app-edit-task
+    *ngIf="isEditingTask"
+    [task]="getTaskById()"
+    (closeEmitter)="isTaskEditing($event)"
+    />
 </div>
